@@ -20,7 +20,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.Collections;
 import java.util.Map;
@@ -62,7 +61,7 @@ public class AuthController extends GenericController {
         }
     }
 
-
+    @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody SignupRequest signupRequest) throws BadRequestException, NotFoundException {
         if (userRepository.existsByUsername(signupRequest.getUsername()))
             throw new BadRequestException("User Already Exists");

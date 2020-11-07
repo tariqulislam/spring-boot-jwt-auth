@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -32,5 +33,9 @@ public class AdminService {
         admin.setRole(newRoles);
         admin.setPassword(passwordEncoder.encode(admin.getPassword()));
         return adminRepository.save(admin);
+    }
+
+    public List<Admin> getAllAdmin() throws BadRequestException {
+        return adminRepository.findAll();
     }
 }

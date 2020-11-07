@@ -13,14 +13,14 @@ import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/employee")
 public class EmployeeController extends  GenericController {
 
     @Autowired
     private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<?> getAllAdmin() throws BadRequestException {
+    public ResponseEntity<?> getAllEmployees() throws BadRequestException {
         return getResponse(true, HttpStatus.OK, "Admin Retrieve Successfully", employeeService.getAllEmployee());
     }
 }
